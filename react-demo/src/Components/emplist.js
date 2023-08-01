@@ -98,7 +98,7 @@ const nav = useNavigate();
                                 <tbody>
                                     {
                                         props.user.userlist && props.user.userlist.map((item, id)=>
-                                            <tr key={id}>
+                                            <tr key={id+1}>
                                                 <td>{id}</td>
                                                 <td>{renderUserImage(item)}</td>
                                                 <td>{item.name}</td>

@@ -120,62 +120,25 @@ app.post("/addemp", (req, res) => {
 
 
 app.put("/user/edit/:id", (req, res) => {
-
     const sql = "update emp set name = ?, sex = ?, dob = ?, salary = ?, department = ?  WHERE ID = ?";
-
     const values = [req.body.name, req.body.sex, req.body.dob, req.body.salary, req.body.department]
-
     const id = req.params.id;
-
     db.query(sql, [...values, id], (err, data) => {
-
         if (err) return res.json(data);
-    
        return res.json(data);
-
     })
-
 })
-
 
 
 
 
 app.delete("/delemp/:id", (req, res) => {
-
-
-
-
     const sql = "DELETE FROM emp WHERE ID = ?";
-
-
-
-
     const id = req.params.id;
-
-
-
-
     db.query(sql, [id], (err, data) => {
-
-
-
-
         if (err)  throw err;
-
-
-
-
         return res.json(data);
 
-
-
-
     })
-
 })
-
-
-
-
 app.listen(8080, () => { console.log("Started!!"); })
