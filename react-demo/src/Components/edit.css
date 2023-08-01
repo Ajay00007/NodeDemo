@@ -1,0 +1,46 @@
+
+  .radio-btn {
+    margin: 5px;
+  }
+  .radio-div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .salary-div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .card {
+    margin-top: 6%;
+    width: 40%;
+    margin-left: 25%;
+    padding-right:0px;
+  }
+  .card-1{
+    margin-top: 40px;
+
+  }
+  
+  
+  /* .login-div-con {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+  .login-btn {
+    margin-left: 2%;
+  }
+  .log-div {
+    margin-top: 3%;
+  }
+  .logout-add-btn {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+   */
+   /* div.card-body{
+    margin-left: 120px;
+   } */

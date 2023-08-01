@@ -1,0 +1,70 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin-left: 550px;
+}
+.form {
+  position: relative;
+  z-index: 1;
+  background: gray;
+  max-width: 360px;
+
+  padding: 45px;
+  text-align: center;
+  border:1px solid gray;
+  border-radius: 20px
+  /* box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); */
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 95%;
+  border: 1px;
+  margin: 0 0 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 10px;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);
+  width: 94%;
+  border: 0;
+  padding: 10px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  border-radius: 15px;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: radial-gradient(circle at 12.3% 19.3%, rgb(95, 209, 249) 0%,  rgb(85, 88, 218) 100.2%);
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+h3{
+  padding-bottom: 20px;
+  font-style: "Roboto", sans-serif;
+}
+p.message{
+  color: white;
+  font-weight: bold;
+}
+
+body{
+    background-image: url("https://image.freepik.com/free-vector/abstract-blue-wavy-with-blurred-light-curved-lines-background_41814-2.jpg");
+    background-size: cover;
+}
+/* label{
+  width: 20%;
+} */
