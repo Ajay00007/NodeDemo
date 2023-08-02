@@ -1,5 +1,12 @@
 # Getting Started with Create React App
 
+
+node server.js for running the node appication
+npm start for running react application 
+Download all the dependencies which are in available in package.json file
+if you face any problem with mysql connection try below given code in workbench
+alter user 'root'@'localhost' identified with mysql_native_password by 'your password';
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
