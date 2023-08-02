@@ -6,7 +6,7 @@ app.use(express.json());
 app.use(cors());
 const db = mysql.createConnection({ host: "localhost",
                                     user: "root",
-                                    password: "ajay007@#",
+                                    password: "root",
                                     database: "emplist" })
 app.post("/register", (req, res) => {
 const sql = "INSERT INTO register (`name`, `email`, `password`) VALUES (?)";
@@ -64,15 +64,25 @@ app.post("/addemp", (req, res) => {
     })
 })
 
+// app.put("/user/edit/:id", (req, res) => {
+//     const sql = "update emp set name = ?, sex = ?, dob = ?, salary = ?, department = ?  WHERE ID = ?";
+//     const values = [req.body.name, req.body.sex, req.body.dob, req.body.salary, req.body.department]
+//     const id = req.params.id;
+//     db.query(sql, [...values, id], (err, data) => {
+//         if (err) throw err;
+//        return res.json(data);
+//     })
+// })
+
 app.put("/user/edit/:id", (req, res) => {
-    const sql = "update emp set name = ?, sex = ?, dob = ?, salary = ?, department = ?  WHERE ID = ?";
-    const values = [req.body.name, req.body.sex, req.body.dob, req.body.salary, req.body.department]
-    const id = req.params.id;
-    db.query(sql, [...values, id], (err, data) => {
-        if (err) return res.json(data);
-       return res.json(data);
-    })
-})
+    const sql = "UPDATE emp SET name = $1, sex = $2, dob = $3, salary = $4, department = $5 WHERE ID = $6";
+    const values = [req.body.name, req.body.sex, req.body.dob, req.body.salary, req.body.department, req.params.id];
+    db.query(sql, values, (err, data) => {
+        if (err) throw err;
+        return res.json(data);
+    });
+});
+
 
 app.delete("/delemp/:id", (req, res) => {
     const sql = "DELETE FROM emp WHERE ID = ?";

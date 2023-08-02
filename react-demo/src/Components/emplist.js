@@ -17,7 +17,7 @@ const nav = useNavigate();
         if (window.confirm('Do you want to remove?')) {
              props.removeuser(index);
              toast.success('Employee removed successfully.')
-             props.loaduser(); 
+            //  props.loaduser(); 
         }
     };
 
