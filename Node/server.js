@@ -1,6 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql");
+//
+// const multer = require('multer');
+
+const path = require('path');
+//
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -65,6 +70,9 @@ app.post("/addemp", (req, res) => {
 })
 
 // app.put("/user/edit/:id", (req, res) => {
+//     //
+//     const id = req.params.id;
+//     //
 //     const sql = "update emp set name = ?, sex = ?, dob = ?, salary = ?, department = ?  WHERE ID = ?";
 //     const values = [req.body.name, req.body.sex, req.body.dob, req.body.salary, req.body.department]
 //     const id = req.params.id;
@@ -74,14 +82,48 @@ app.post("/addemp", (req, res) => {
 //     })
 // })
 
-app.put("/user/edit/:id", (req, res) => {
-    const sql = "UPDATE emp SET name = $1, sex = $2, dob = $3, salary = $4, department = $5 WHERE ID = $6";
-    const values = [req.body.name, req.body.sex, req.body.dob, req.body.salary, req.body.department, req.params.id];
-    db.query(sql, values, (err, data) => {
-        if (err) throw err;
-        return res.json(data);
+// app.put('/user/edit/:id', (req, res) => {
+
+//     const id = req.params.id;
+  
+//     const { name, sex, dob, salary, department } = req.body;
+  
+//     // const image = req.file ? req.file.filename : '';
+  
+//     const sql = 'UPDATE emp SET name = ?, sex = ?, dob = ?, salary = ?, department = ? WHERE id = ?';
+  
+//     db.query(sql, [name, sex, dob, salary, department, id], (err, result) => {
+  
+//       if (err) {
+  
+//         throw err;
+  
+//       }
+  
+//       res.json({ message: 'Employee updated successfully' });
+  
+//     });
+  
+//   });
+
+app.put('/user/edit/:id', (req, res) => {
+    const id = req.params.id;
+    const { name, sex, dob, salary, department } = req.body;
+  
+    const sql = 'UPDATE emp SET name = ?, sex = ?, dob = ?, salary = ?, department = ? WHERE id = ?';
+  
+    db.query(sql, [name, sex, dob, salary, department, id], (err, result) => {
+        if (err) {
+            console.error('Error updating employee:', err);
+            res.status(500).json({ error: 'An error occurred while updating employee' });
+            return;
+        }
+        res.json({ message: 'Employee updated successfully' });
     });
 });
+
+
+
 
 
 app.delete("/delemp/:id", (req, res) => {

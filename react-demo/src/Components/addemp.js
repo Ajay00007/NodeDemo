@@ -6,11 +6,11 @@ import './edit.css';
 
 
 const Adduser = () => {
-    const [name, namechange] = useState('');
-    const [sex, sexchange] = useState('');
-    const [dob, dobchange] = useState('');
-    const [salary, salarychange] = useState('');
-    const [department, departmentchange] = useState('');
+    const [name, setName] = useState('');
+    const [sex, setSex] = useState('');
+    const [dob, setDob] = useState('');
+    const [salary, setSalary] = useState('');
+    const [department, setDepartment] = useState('');
     const [image, setImage] = useState("");
 
     const dispatch=useDispatch();
@@ -91,7 +91,7 @@ const Adduser = () => {
                                 <div className="form-group" >
                                     <label>Name</label>
                                     <input value={name} 
-                                    onChange={(e) => namechange(e.target.value)} 
+                                    onChange={(e) => setName(e.target.value)} 
                                     className="form-control" 
                                     required
                                     placeholder="Enter Employee Name"></input>
@@ -105,7 +105,7 @@ const Adduser = () => {
                         required
                         value="M"
                         type="radio"
-                        onChange={e => sexchange(e.target.value)}
+                        onChange={e => setSex(e.target.value)}
                         name="gender"
                         className="radio-btn"
                       />
@@ -114,7 +114,7 @@ const Adduser = () => {
                         required
                         value="F"
                         type="radio"
-                        onChange={e => sexchange(e.target.value)}
+                        onChange={e => setSex(e.target.value)}
                         name="gender"
                         className="radio-btn"
                       />
@@ -129,27 +129,41 @@ const Adduser = () => {
                         type="date"
                         required
                         value={dob}
-                        onChange={(e) => dobchange(e.target.value)}
+                        onChange={(e) => setDob(e.target.value)}
                         className="form-control"
                       ></input>
                     </div>
                 </div>
-                            <div className="col-lg-8">
+                            {/* <div className="col-lg-8">
                                 <div className="form-group">
                                     <label>Salary</label>
                                     <input 
                                     value={salary} 
-                                    onChange={(e) => salarychange(e.target.value)} 
+                                    onChange={(e) => setSalary(e.target.value)} 
                                     className="form-control"
                                     required></input>
                                 </div>
-                            </div>
+                            </div> */}
+                            <div className="col-lg-8">
+    <div className="form-group">
+        <label>Salary</label>
+        <input 
+            value={salary} 
+            onChange={(e) => setSalary(e.target.value)} 
+            className="form-control"
+            type="number" // Use the "number" input type
+            step="0.01"   // Optionally specify step value
+            required
+        />
+    </div>
+</div>
+
                             <div className="col-lg-8">
                                 <div className="form-group">
                                     <label>Department</label>
                                     <select 
                                     value={department}
-                                    onChange={e => departmentchange((e).target.value)}
+                                    onChange={e => setDepartment((e).target.value)}
                                     className="form-control"
                                     required
                                     >
